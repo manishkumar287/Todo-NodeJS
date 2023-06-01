@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+</head>
+<body>
+    <h1>TODO Task List</h1>
+
+    <div>
+        <ul>
+       <% for(let i of tasks){ %>
+            <li>
+                <div>
+                    <h2><%=i.task%></h2>
+                    <h6>
+                        <%=i.time%>
+                    </h6>
+                    <a href="/delete-task/?id=<%=i._id %>">
+                        delete
+                    </a>
+                    <a href="/update-task/?id=<%=i._id%>">
+                        update
+                    </a>
+                </div>
+            </li>
+            <br>
+
+       <% } %>
+        </ul>
+    </div>
+
+    <hr width="80%">
+    <div>
+        <form action="/create-task" method="POST">
+            <div>
+                <input type="text" name="task" placeholder="Enter the Task">
+            </div>
+
+            <button type="submit" id="submit">Add Task</button>
+        </form>
+        
+    </div>
+    
+    
+</body>
+</html>
